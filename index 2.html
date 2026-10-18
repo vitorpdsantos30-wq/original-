@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>REAL TÁ ON | Contas de Blox Fruits e Roube um Ovo</title>
+<meta name="description" content="Loja independente de contas de Blox Fruits e Roube um Ovo. Veja as contas e fale com a gente no Discord.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Cpath d='M9 12h14a4 4 0 0 1 4 4v3a3 3 0 0 1-5 2l-2-2h-8l-2 2a3 3 0 0 1-5-2v-3a4 4 0 0 1 4-4z' fill='%238b5cf6'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#000;--surface:#121212;--line:#2a2a2a;--text:#fff;--muted:#a3a3a3;--accent:#8b5cf6;--accent-2:#a78bfa;--r:14px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2{margin:0;line-height:1.1;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left)) 0 max(20px,env(safe-area-inset-right))}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 12px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+section[id],.cat[id]{scroll-margin-top:76px}
+
+/* header */
+.header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.92);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
+.menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 16px}
+.menu.open{display:block}
+.menu a{display:block;padding:14px 0;color:var(--muted);border-bottom:1px solid var(--line);font-weight:600}
+.menu a:last-child{border-bottom:0}
+.burger{width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
+.burger span{width:20px;height:2px;background:#fff;border-radius:2px;transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:12px;font-weight:700;text-align:center;border:1px solid transparent;cursor:pointer;transition:background .2s,border-color .2s;-webkit-tap-highlight-color:transparent}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{border-color:#444;color:#fff}
+.btn-big{min-height:56px;font-size:1.05rem;padding:14px 32px}
+
+/* hero */
+.hero{padding:64px 0 56px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(2rem,8vw,4rem);max-width:14ch;font-weight:900}
+.hero p{margin-top:18px;color:var(--muted);font-size:1.1rem;max-width:34em}
+.actions{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+
+/* products */
+.products{padding:56px 0 24px}
+.cat{margin-bottom:56px}
+.cat h2{font-size:clamp(1.5rem,5vw,2rem);margin-bottom:24px;padding-left:14px;border-left:4px solid var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+.thumb{aspect-ratio:16/9;background:#1a1a1a}
+.thumb img,.thumb svg{width:100%;height:100%;object-fit:cover}
+.body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.body h3{margin:0;font-size:1.15rem}
+.info{list-style:none;margin:0;padding:0;color:var(--muted);font-size:.95rem;display:grid;gap:4px}
+.info b{color:#e5e5e5;font-weight:600}
+.price{margin-top:auto;font-size:1.5rem;font-weight:800;padding-top:6px}
+.empty{grid-column:1/-1;border:1px dashed #444;border-radius:var(--r);padding:32px 20px;text-align:center;color:var(--muted)}
+
+/* discord */
+.discord{padding:64px 0;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.discord h2{font-size:clamp(1.6rem,6vw,2.6rem);font-weight:900}
+.discord p{margin:18px auto 30px;max-width:36em;color:var(--muted)}
+.discord .btn{width:100%;max-width:360px}
+
+/* footer */
+.footer{padding:40px 0 32px}
+.foot{display:grid;gap:28px}
+.footer nav{display:grid;gap:10px}
+.footer nav a{color:var(--muted);padding:4px 0}
+.note{margin-top:8px;color:var(--muted);font-size:.85rem;max-width:44em}
+
+@media(hover:hover){
+  .btn-primary:hover{background:var(--accent-2);color:#000}
+  .btn-ghost:hover{border-color:#fff}
+  .card:hover{border-color:var(--accent)}
+  .footer nav a:hover,.menu a:hover{color:#fff}
+}
+@media(min-width:640px){
+  .actions{flex-direction:row}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1.5fr 1fr}
+}
+@media(min-width:900px){
+  .burger{display:none}
+  .menu{display:flex;position:static;background:none;border:0;padding:0;gap:28px}
+  .menu a{border:0;padding:8px 0}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .hero{padding:96px 0 88px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#produtos">Ir para o conteúdo</a>
+
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="REAL TÁ ON, início">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#8b5cf6"/><path d="M9 12h14a4 4 0 0 1 4 4v3a3 3 0 0 1-5 2l-2-2h-8l-2 2a3 3 0 0 1-5-2v-3a4 4 0 0 1 4-4z" fill="#000"/><path d="M11 14v4M9 16h4" stroke="#8b5cf6" stroke-width="1.6" stroke-linecap="round"/><circle cx="21" cy="15.5" r="1.1" fill="#8b5cf6"/><circle cx="23.5" cy="17.5" r="1.1" fill="#8b5cf6"/></svg>
+      <span>REAL TÁ ON</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="#inicio">Início</a>
+      <a href="#blox-fruits">Blox Fruits</a>
+      <a href="#roube-um-ovo">Roube um Ovo</a>
+      <a href="https://discord.gg/M4KupzPxE" target="_blank" rel="noopener noreferrer">Discord</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <h1>AS MELHORES CONTAS ESTÃO AQUI</h1>
+      <p>Encontre sua próxima conta gamer e entre para nossa comunidade!</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#blox-fruits">Ver contas de Blox Fruits</a>
+        <a class="btn btn-ghost" href="#roube-um-ovo">Ver contas de Roube um Ovo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="produtos">
+    <div class="wrap">
+      <div class="cat" id="blox-fruits">
+        <h2>Blox Fruits</h2>
+        <div class="grid" id="grid-blox-fruits"></div>
+      </div>
+      <div class="cat" id="roube-um-ovo">
+        <h2>Roube um Ovo</h2>
+        <div class="grid" id="grid-roube-um-ovo"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="discord" id="discord">
+    <div class="wrap">
+      <h2>FAÇA PARTE DA NOSSA COMUNIDADE!</h2>
+      <p>Entre no nosso Discord para conferir novidades, conhecer outros jogadores, tirar dúvidas e saber mais sobre as contas disponíveis.</p>
+      <a class="btn btn-primary btn-big" href="https://discord.gg/M4KupzPxE" target="_blank" rel="noopener noreferrer">ENTRAR NO DISCORD</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <div>
+      <strong>REAL TÁ ON</strong>
+      <p class="note">Loja independente, sem afiliação oficial com a Roblox, Blox Fruits, Roube um Ovo ou seus desenvolvedores. Todas as marcas pertencem aos seus respectivos donos.</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="#blox-fruits">Contas de Blox Fruits</a>
+      <a href="#roube-um-ovo">Contas de Roube um Ovo</a>
+      <a href="https://discord.gg/M4KupzPxE" target="_blank" rel="noopener noreferrer">Discord</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/*
+  CATÁLOGO — edite aqui para adicionar, remover ou alterar contas.
+  Campos: category ("blox-fruits" ou "roube-um-ovo"), name, price (número em reais),
+  info (lista de textos), image (opcional: caminho/URL da imagem; vazio = ilustração padrão).
+  Os itens abaixo são EXEMPLOS fictícios. Apague a lista para ver a mensagem "em breve".
+*/
+const PRODUCTS = [
+  { category: "blox-fruits", name: "Conta Leopard Max", price: 89.9, image: "",
+    info: ["Fruta: Leopard", "Nível: 2550 (máx.)", "Raça: Ghoul V4", "Espadas: Cursed Dual Katana", "Itens: Fruta Dough no inventário"] },
+  { category: "blox-fruits", name: "Conta Dragon Iniciante", price: 39.9, image: "",
+    info: ["Fruta: Dragon", "Nível: 1800", "Raça: Mink V3", "Espadas: Dark Blade", "Itens: 2 frutas raras"] },
+  { category: "blox-fruits", name: "Conta Buddha Equilibrada", price: 59.9, image: "",
+    info: ["Fruta: Buddha", "Nível: 2200", "Raça: Human V2", "Espadas: Shisui", "Itens: Fruta Light e Magma"] },
+  { category: "roube-um-ovo", name: "Conta Ovos Raros", price: 29.9, image: "",
+    info: ["Ovos: 12 ovos raros", "Pets: 3 lendários", "Progresso: Mundo 5", "Itens: Incubadora turbo"] },
+  { category: "roube-um-ovo", name: "Conta Coleção de Pets", price: 49.9, image: "",
+    info: ["Ovos: 6 ovos épicos", "Pets: 8 pets, 1 secreto", "Progresso: Mundo 8", "Itens: Pacote de boosts"] }
+];
+
+(function () {
+  var DISCORD = "https://discord.gg/M4KupzPxE";
+  var fmt = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+  var palette = ["#8b5cf6", "#3b82f6", "#6366f1", "#a78bfa"];
+
+  function art(cat, i) {
+    var c = palette[i % palette.length];
+    var shape = cat === "roube-um-ovo"
+      ? '<ellipse cx="160" cy="92" rx="38" ry="50" fill="#fff"/><path d="M130 100q30 22 60 0" stroke="' + c + '" stroke-width="5" fill="none"/>'
+      : '<circle cx="160" cy="95" r="42" fill="#fff"/><path d="M160 53q4-18 20-22" stroke="' + c + '" stroke-width="6" fill="none" stroke-linecap="round"/>';
+    return '<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="320" height="180" fill="#161616"/><circle cx="160" cy="95" r="80" fill="' + c + '" opacity=".35"/>' + shape + '</svg>';
+  }
+
+  function card(p, i) {
+    var el = document.createElement("article");
+    el.className = "card";
+    var thumb = document.createElement("div");
+    thumb.className = "thumb";
+    if (p.image) {
+      var img = document.createElement("img");
+      img.src = p.image; img.alt = p.name; img.loading = "lazy"; img.decoding = "async";
+      thumb.appendChild(img);
+    } else {
+      thumb.innerHTML = art(p.category, i);
+    }
+    var body = document.createElement("div");
+    body.className = "body";
+    var h = document.createElement("h3"); h.textContent = p.name;
+    var ul = document.createElement("ul"); ul.className = "info";
+    (p.info || []).forEach(function (t) {
+      var li = document.createElement("li");
+      var k = t.indexOf(":");
+      if (k > 0) {
+        var b = document.createElement("b"); b.textContent = t.slice(0, k + 1);
+        li.appendChild(b); li.appendChild(document.createTextNode(t.slice(k + 1)));
+      } else { li.textContent = t; }
+      ul.appendChild(li);
+    });
+    var price = document.createElement("div"); price.className = "price"; price.textContent = fmt.format(p.price);
+    var a = document.createElement("a");
+    a.className = "btn btn-primary"; a.href = DISCORD; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.textContent = "Tenho interesse";
+    a.setAttribute("aria-label", "Tenho interesse na " + p.name + " (abre o Discord)");
+    body.append(h, ul, price, a);
+    el.append(thumb, body);
+    return el;
+  }
+
+  ["blox-fruits", "roube-um-ovo"].forEach(function (cat) {
+    var grid = document.getElementById("grid-" + cat);
+    var list = (typeof PRODUCTS !== "undefined" ? PRODUCTS : []).filter(function (p) { return p.category === cat; });
+    if (!list.length) {
+      var e = document.createElement("p");
+      e.className = "empty";
+      e.textContent = "Novas contas serão adicionadas em breve. Entre no Discord para ser avisado!";
+      grid.appendChild(e);
+      return;
+    }
+    list.forEach(function (p, i) { grid.appendChild(card(p, i)); });
+  });
+
+  var burger = document.getElementById("burger");
+  var menu = document.getElementById("menu");
+  function setMenu(open) {
+    menu.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  }
+  burger.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
+  menu.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth >= 900) setMenu(false); });
+})();
+</script>
+</body>
+</html>
